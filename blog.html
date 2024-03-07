@@ -53,7 +53,7 @@
           <li><a href="#">Portfolio</a></li>
           <li><a href="#">Contact me</a></li>
           <li><a href="#">Sign up</a></li>
-          <li><a href="#">Login</a></li>
+          <li><a href="form.html">Login</a></li>
         </ul>
       </div>
     </nav>
@@ -62,7 +62,7 @@
         <article>
           <div class="container">
           <header class="post-header">
-            <h2>The basic language of the web:html</h2>
+            <h2 id="heading">The basic language of the web:html</h2>
   
             <div class="author-box">
               <img
@@ -72,12 +72,15 @@
                 class="author-img"
               />
               <p id="author" class="author">
-                Posted by <strong>laura jones</strong> on Monday,January 21st 2024
+                Posted by <strong>Janet uwimana</strong> on <span id='date'></span>
               </p>
             </div>
-            <img src="post.jpg" width="100" height="100" class="post-img" />
+            <img src="" width="100" height="100" class="post-img" />
           </header>
-          <p>
+          <h3 id="intro"></h3>
+          <div id="post-container">
+           
+          <!-- <p>
             all modern websites and web applications are built using three
             <emphasis>fundamental</emphasis>
             technologies: HTML,CSS and Javascript.
@@ -98,7 +101,8 @@
             HTML consists of elements that describe different types of content:
             paragraphs,links,headings,images,video etc. web browsers understand
             HTML and render HTML code as websites
-          </p>
+          </p> -->
+        </div>
         </div>   
     </article>
     <div  class="container">
@@ -111,17 +115,62 @@
       </div>     
       </div>
       <div class="container">
-      <form>
-        <label>message</label><br>
-        <textarea class="text-area"></textarea>
-      </form>
-      <div class="send">
-        <button type="submit" class="btn btn-send">send</button>
-      </div>
-        <a href="#">30<i class="fas fa-thumbs-up"></i></a>
-      <a href="#">50<i class="fas fa-comment"></i></a>
-    </div>
+        <div class="box">
+          <div class="comment-session">
+         <div class="post-comment">
+           <div class="comment-list">
+           <div class="flex">
+             <div class="user">
+               <div class="user-image"><img src="scarlet-jones.jpg" alt="user-image"></div>
+                <div class="user-meta"> 
+                 <div class="name">janet</div>
+                  <div class="day">2 days ago</div> 
+               </div>
+               </div>
+               <div class="reply">
+                 <div class="tick-icon"><i class="fas fa-thumbs-up"></i></div>
+                 <div class="re-comment">Reply</div>
+               </div>
+             </div>
+             <div class="comment">Lorem, ipsum dolor sit amet consectetur adipisicing elit. ,</div>
+           </div>
+           
+         </div> 
+    
+          <form  class="comment-box">
+           <div class="user">
+             <div class="image"><img src="scarlet-jones.jpg" alt="user-image"></div>
+             <div class="name">janet</div>
+           </div>
+           <textarea name="comment" placeholder="type your comment"></textarea>
+           <button class="comment-submit">comment</button>
+         </form>
+       </div>
+       </div>
+     </div>
+         </form> 
   </div>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let blogId=urlParams.get('blog_id');
+    let blogList1=[];
+    let singleBlog=[];
+  if(localStorage.getItem('storage')){
+blogList1=JSON.parse(localStorage.getItem('storage'));
+  singleBlog=blogList1[blogId];
+}
+if(singleBlog){
+  document.getElementById('heading').innerText=singleBlog.blogTitle;
+  document.getElementById('intro').innerHTML=singleBlog.intro;
+  document.getElementById('post-container').innerHTML=singleBlog.blogArticle;
+  document.getElementById('date').innerText=singleBlog.blogDate;
+  document.querySelector(".post-img").setAttribute("src",singleBlog.blogImage);
+}
+console.log(singleBlog)
+    console.log(blogId);
+    console.log(urlParams);
+  </script>
     <script src="main.js"></script>
     <script src="script.js"></script>
   </body>

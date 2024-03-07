@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>users</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+
+    <!-- Montserrat Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <!-- font awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -11,106 +24,138 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="admin.css" />
+
+    <link rel="stylesheet" href="menu.css" />
   </head>
   <body>
     <div class="grid-container">
-      <div class="aside">
-        <div class="sidebar">
-          <nav class="sidenav">
-            <ul>
-              <li>
-                <a href="#">
-                  <img src="logo.png" alt="logo" class="logo" />
-                </a>
-              </li>
-              <li>
-                <a href="menu.html"><i class="fa fa-bars"></i><span>menu</span></a>
-              </li>
-              <li>
-                <a href="users.html"
-                  ><i class="fas fa-users"></i>
-                  <span>users</span>
-                </a>
-              </li>
-              <li>
-                <a href="messages.html"
-                  ><i class="fa fa-envelope"></i>
-                  <span>messages</span>
-                </a>
-              </li>
-              <li>
-                <a href="blogs.html"
-                  ><i class="fas fa-blog"></i>
-                  <span>blogs</span>
-                </a>
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="fas fa-thumbs-up"></i> <span>likes</span></a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="fas fa-comment"></i><span>comments</span></a
-                >
-              </li>
-              <li>
-                <a href="create.html"
-                  ><i class="fa fa-plus"></i><span>create blog</span></a
-                >
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-gear"></i><span>settings</span></a>
-              </li>
-              <li class="logout">
-                <a href="#"
-                  ><i class="fa fa-sign-out"></i><span>logout</span></a
-                >
-              </li>
-          </nav>
+      <!-- Header -->
+      <header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+          <span class="material-icons-outlined">menu</span>
         </div>
-      </div>
-      <section class="users">
-        <div class="main-container">
-          <h3 class="heading">Users</h3>
-          <table>
-            <thead>
+        <div class="header-left">
+          <span class="material-icons-outlined">search</span>
+        </div>
+        <div class="header-right">
+          <span class="material-icons-outlined">email</span>
+          <span class="material-icons-outlined"> logout </span>
+        </div>
+      </header>
+      <!-- End Header -->
+
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <img src="logo.png" alt="logo" class="logo" />
+          </div>
+          <span class="material-icons-outlined" onclick="closeSidebar()"
+            >close</span
+          >
+        </div>
+
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="menu.html"><i class="fa fa-home"></i> <span>Home</span></a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="users.html"
+              ><i class="fas fa-users"></i><span>users</span></a
+            >
+          </li>
+          <li class="sidebar-list-item">
+            <a href="messages.html"
+              ><i class="fa fa-envelope"></i> <span>messages</span></a
+            >
+          </li>
+          <li class="sidebar-list-item">
+            <a href="blogs.html"
+              ><i class="fas fa-blog"></i> <span>blogs</span></a
+            >
+          </li>
+          <li class="sidebar-list-item">
+            <a href="create.html"
+              ><i class="fa fa-plus"></i> <span>create blog</span></a
+            >
+          </li>
+        </ul>
+      </aside>
+      <!-- End Sidebar -->
+      <main class="main-container">
+        <div class="main-title">
+          <h2>USERS</h2>
+        </div>
+
+        <table class="table">
+          <thead>
             <tr>
-              <td>Names</td>
-              <td>Email</td>
-              <td colspan="2">action</td>
+              <th>Names</th>
+              <th>Email</th>
+              <th colspan="2">action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>uwimana janet</td>
-              <td>uwimanajanet@563gmail.com</td>
-              <td><i class="fa fa-edit  icon edit-icon"></i>update</td>
-              <td><i class="fa fa-trash icon trash-icon"></i>delete</td>
+              <td data-title="Names">uwimana janet</td>
+              <td data-title="Email">uwimanajanet@563gmail.com</td>
+              <td data-title="action">
+                <button name="update" class="btn btn-update">
+                  <i class="fa fa-edit icon edit-icon"></i>update
+                </button>
+              </td>
+              <td data-title="action">
+                <button name="delete" class="btn btn-delete">
+                  <i class="fa fa-trash icon trash-icon"></i>delete
+                </button>
+              </td>
             </tr>
             <tr>
-              <td>Erica santa</td>
-              <td>Ericasanta@56gmail.com</td>
-              <td><i class="fa fa-edit icon edit-icon"></i>update</td>
-              <td><i class="fa fa-trash icon trash-icon"></i>delete</td>
+              <td data-title="Names">Erica santa</td>
+              <td data-title="Email">Ericasanta@56gmail.com</td>
+              <td data-title="action">
+                <button name="update" class="btn btn-update">
+                  <i class="fa fa-edit icon edit-icon"></i>update
+                </button>
+              </td>
+              <td data-title="action">
+                <button name="delete" class="btn btn-delete">
+                  <i class="fa fa-trash icon trash-icon"></i>delete
+                </button>
+              </td>
             </tr>
             <tr>
-              <td>Erica santa</td>
-              <td>Ericasanta@56gmail.com</td>
-              <td><i class="fa fa-edit icon edit-icon"></i>update</td>
-              <td><i class="fa fa-trash icon trash-icon"></i>delete</td>
+              <td data-title="Names">Erica santa</td>
+              <td data-title="Email">Ericasanta@56gmail.com</td>
+              <td data-title="action">
+                <button name="update" class="btn btn-update">
+                  <i class="fa fa-edit icon edit-icon"></i>update
+                </button>
+              </td>
+              <td data-title="action">
+                <button name="delete" class="btn btn-delete">
+                  <i class="fa fa-trash icon trash-icon"></i>delete
+                </button>
+              </td>
             </tr>
             <tr>
-              <td>uwimana janet</td>
-              <td>uwimanajanet@563gmail.com</td>
-              <td><i class="fa fa-edit icon edit-icon"></i>update</td>
-              <td><i class="fa fa-trash icon trash-icon"></i>delete</td>
+              <td data-title="Names">uwimana janet</td>
+              <td data-title="Email">uwimanajanet@563gmail.com</td>
+              <td data-title="action">
+                <button name="update" class="btn btn-update">
+                  <i class="fa fa-edit icon edit-icon"></i>update
+                </button>
+              </td>
+              <td data-title="action">
+                <button name="delete" class="btn btn-delete">
+                  <i class="fa fa-trash icon trash-icon"></i>delete
+                </button>
+              </td>
             </tr>
           </tbody>
-          </table>
-        </div>
-      </section>
+        </table>
+      </main>
     </div>
+    <script src="dashboard.js"></script>
   </body>
 </html>
